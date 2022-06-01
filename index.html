@@ -3,7 +3,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<style>
 			body {margin: 0}
-			.flag {height: calc(100%/6)}
+			div {height: calc(100%/6)}
 		</style>
 		<script>
 			window.onclick = function()
@@ -13,14 +13,22 @@
 				else
 					document.documentElement.requestFullscreen({navigationUI:"hide"}).then(()=>screen.orientation.lock("landscape"));
 			}
+			
+			screen.orientation.onchange = function()
+			{
+				if(screen.orientation.type.match("portrait"))
+					document.exitFullscreen();
+				if(screen.orientation.type.match("landscape"))
+					document.documentElement.requestFullscreen({navigationUI:"hide"});
+			}
 		</script>
 	</head>
 	<body>
-		<div class="flag" style="background:red"></div>
-		<div class="flag" style="background:orange"></div>
-		<div class="flag" style="background:yellow"></div>
-		<div class="flag" style="background:green"></div>
-		<div class="flag" style="background:blue"></div>
-		<div class="flag" style="background:purple"></div>
+		<div style="background:red"></div>
+		<div style="background:orange"></div>
+		<div style="background:yellow"></div>
+		<div style="background:green"></div>
+		<div style="background:blue"></div>
+		<div style="background:purple"></div>
 	</body>
 </html>

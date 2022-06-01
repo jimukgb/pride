@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			body {margin: 0}
+			.flag {height: calc(100%/6)}
+		</style>
+		<script>
+			window.onclick = function()
+			{
+				if(document.fullscreenElement)
+				{
+					document.exitFullscreen();
+					screen.orientation.lock("landscape");
+				}
+				else
+				{
+					document.documentElement.requestFullscreen({navigationUI:"hide"});
+					screen.orientation.unlock();
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="flag" style="background:red"></div>
+		<div class="flag" style="background:orange"></div>
+		<div class="flag" style="background:yellow"></div>
+		<div class="flag" style="background:green"></div>
+		<div class="flag" style="background:blue"></div>
+		<div class="flag" style="background:purple"></div>
+	</body>
+</html>

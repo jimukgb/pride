@@ -9,15 +9,9 @@
 			window.onclick = function()
 			{
 				if(document.fullscreenElement)
-				{
-					document.exitFullscreen();
-					screen.orientation.lock("landscape");
-				}
+					document.exitFullscreen().then(()=>screen.orientation.unlock());
 				else
-				{
-					document.documentElement.requestFullscreen({navigationUI:"hide"});
-					screen.orientation.unlock();
-				}
+					document.documentElement.requestFullscreen({navigationUI:"hide"}).then(()=>screen.orientation.lock("landscape"));
 			}
 		</script>
 	</head>
